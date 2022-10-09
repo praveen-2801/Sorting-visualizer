@@ -6,6 +6,7 @@ from turtle import speed
 from colors import *
 from Algorithms.bubblesort import bubble_sort
 from Algorithms.mergesort import merge_sort
+from Algorithms.quick_sort import quick_sort
 
 main_window = Tk()
 
@@ -14,7 +15,7 @@ main_window.maxsize(1000,600)
 main_window.config(bg = WHITE)
 
 algo_name = StringVar()
-algo_list = ["Bubble sort",'Merge sort']
+algo_list = ["Bubble sort",'Merge sort','Quick sort']
 
 speed_name = StringVar()
 speed_list = ["fast","medium","slow"]
@@ -50,11 +51,11 @@ def generate():
 def set_speed():
 
     if speed_menu.get() == "slow":
-        return 0.1
+        return 0.3
     elif speed_menu.get() == "medium":
-        return 0.01
+        return 0.1
     else:
-        return 0.001
+        return 0.01
 
 
 def sort():
@@ -65,6 +66,8 @@ def sort():
         bubble_sort(data,drawData,timeTick)
     elif algo_menu.get() == "Merge sort":
         merge_sort(data,0,len(data)-1,drawData,timeTick)
+    elif algo_menu.get() == "Quick sort":
+        quick_sort(data,0,len(data)-1,drawData,timeTick)
         
 
 UI_frame = Frame(main_window,width = 800,height = 300,bg = WHITE)
